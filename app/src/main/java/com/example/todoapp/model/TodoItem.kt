@@ -1,4 +1,3 @@
 package com.example.todoapp.model
 
-class ToDoItem {
-}
+data class TodoItem(val title: String, val date: String)
