@@ -31,25 +31,7 @@ fun ToDoListScreen() {
         .fillMaxSize()
         .padding(25.dp)) {
         todoItems.value.forEach { item ->
-            Card(modifier = Modifier.padding(vertical = 10.dp)) {
-                Row(
-                    modifier = Modifier
-                        .padding(10.dp)
-                        .fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text(
-                        text = item.title,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(Icons.Outlined.DateRange, null)
-                        Spacer(modifier = Modifier.padding(2.dp))
-                        Text(item.date)
-                    }
-                }
-            }
+            TodoItemScreen(item)
         }
     }
 }
