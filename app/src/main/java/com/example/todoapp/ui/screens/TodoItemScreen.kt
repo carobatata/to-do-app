@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.DateRange
-import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
@@ -29,13 +28,13 @@ fun TodoItemScreen(item: TodoItem) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
-                text = item.title,
+                text = item.name.orEmpty(),
                 fontWeight = FontWeight.Bold
             )
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(Icons.Outlined.DateRange, null)
                 Spacer(modifier = Modifier.padding(2.dp))
-                Text(item.date)
+                Text(item.date.toString())
             }
         }
     }

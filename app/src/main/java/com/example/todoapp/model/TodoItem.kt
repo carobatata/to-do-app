@@ -1,3 +1,5 @@
 package com.example.todoapp.model
 
-data class TodoItem(val title: String, val date: String)
+import com.google.firebase.Timestamp
+
+data class TodoItem(val name:String? = null, val date: Timestamp? = null, val isDone:Boolean = false)
