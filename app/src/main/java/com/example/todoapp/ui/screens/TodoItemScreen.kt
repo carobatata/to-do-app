@@ -16,9 +16,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.todoapp.model.TodoItem
+import com.example.todoapp.model.TodoItemUI
 
 @Composable
-fun TodoItemScreen(item: TodoItem) {
+fun TodoItemScreen(item: TodoItemUI) {
     OutlinedCard(modifier = Modifier.padding(vertical = 10.dp)) {
         Row(
             modifier = Modifier
@@ -28,13 +29,13 @@ fun TodoItemScreen(item: TodoItem) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
-                text = item.name.orEmpty(),
+                text = item.name,
                 fontWeight = FontWeight.Bold
             )
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(Icons.Outlined.DateRange, null)
                 Spacer(modifier = Modifier.padding(2.dp))
-                Text(item.date.toString())
+                Text(item.date)
             }
         }
     }
