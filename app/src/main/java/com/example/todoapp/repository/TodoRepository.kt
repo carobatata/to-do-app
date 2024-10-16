@@ -1,4 +1,8 @@
 package com.example.todoapp.repository
 
-class ToDoRepository {
+import com.example.todoapp.model.TodoItem
+
+interface TodoRepository {
+    fun doNetworkCall()
+    fun getAllTodoItems(): List<TodoItem>
 }
