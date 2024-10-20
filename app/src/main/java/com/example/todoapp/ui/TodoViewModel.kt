@@ -19,7 +19,7 @@ class TodoViewModel(private val todoRepository: TodoRepository) : ViewModel() {
         getAllTodoItems()
     }
 
-    fun getAllTodoItems() {
+    private fun getAllTodoItems() {
         _todoItemsUiState.value = TodoItemUiState.Loading
         viewModelScope.launch {
             val todosResult = todoRepository.getAllTodoItems()
