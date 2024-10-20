@@ -1,7 +1,7 @@
-package com.example.todoapp.repository
+package com.example.todoapp.database
 
 import com.example.todoapp.model.TodoItem
 
-interface TodoRepository {
+interface FirebaseDatabase {
     suspend fun getAllTodoItems(): Result<List<TodoItem>>
 }
