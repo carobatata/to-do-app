@@ -15,6 +15,8 @@ composeBom = "2024.09.03"
 viewModelComposeVersion = "2.8.6"
 googleServicesVersion = "4.4.2"
 firebaseBom = "33.4.0"
+mockk = "1.13.5"
+coroutines = "1.8.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -36,6 +38,9 @@ koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndr
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxCompose" }
 koin-androidx-navigation = { module = "io.insert-koin:koin-androidx-navigation", version.ref = "koinAndroidxNavigation" }
 koin-test-junit4 = { module = "io.insert-koin:koin-test-junit4", version.ref = "koinTestJunit4" }
+mockk  = { module = "io.mockk:mockk", version.ref = "mockk" }
+kotlinx-coroutines-core  = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-test  = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 
 firebase-bom = {module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom"}
 firebase-firestore = {module = "com.google.firebase:firebase-firestore"}

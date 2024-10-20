@@ -18,6 +18,10 @@ fun ToDoListScreen() {
     val viewModel = getViewModel<TodoViewModel>()
     val todoItems = viewModel.todoItemsUiState.collectAsState()
 
+    LaunchedEffect(true) {
+        viewModel.getAllTodoItems()
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
