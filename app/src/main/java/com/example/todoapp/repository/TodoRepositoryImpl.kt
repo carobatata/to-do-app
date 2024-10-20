@@ -13,7 +13,7 @@ class ToDoRepositoryImpl(private val firebaseDatabase: FirebaseDatabase) : TodoR
                     val name = dataMap["name"] as String
                     val date = dataMap["date"] as Timestamp
                     val isDone = dataMap["isDone"] as Boolean
-                        TodoItem(name, date, isDone)
+                    TodoItem(name, date, isDone)
                 } ?: emptyList()
                 Result.success(todos)
             } else {

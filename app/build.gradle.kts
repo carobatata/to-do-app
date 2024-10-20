@@ -76,11 +76,6 @@ dependencies {
     implementation(libs.koin.androidx.compose)
     testImplementation(libs.koin.test.junit4)
 
-    //Retrofit
-    implementation(libs.retrofit)
-    implementation(libs.converter.moshi)
-    implementation(libs.okhttp)
-
     //Firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.firestore)
