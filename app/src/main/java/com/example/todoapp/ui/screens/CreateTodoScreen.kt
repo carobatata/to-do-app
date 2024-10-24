@@ -22,17 +22,19 @@ fun CreateTodoScreen() {
     ModalBottomSheet(
         onDismissRequest = {}
     ) {
-        Column(modifier = Modifier.fillMaxWidth().padding(20.dp),
+        Column(modifier = Modifier.padding(20.dp),
             horizontalAlignment = Alignment.CenterHorizontally) {
             OutlinedTextField(
                 label = { Text("Todo") },
                 value = "value",
-                onValueChange = {}
+                onValueChange = {},
+                modifier = Modifier.fillMaxWidth()
             )
             Spacer(modifier = Modifier.padding(8.dp))
             FilledTonalButton(
                 onClick = {},
                 shape = RoundedCornerShape(4.dp),
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Create")
             }
