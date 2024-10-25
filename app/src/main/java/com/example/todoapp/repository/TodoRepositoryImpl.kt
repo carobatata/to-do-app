@@ -23,18 +23,8 @@ class ToDoRepositoryImpl(private val firebaseDatabase: FirebaseDatabase) : TodoR
             Result.failure(e)
         }
     }
+
+    override suspend fun createTodoItem(todoItem: TodoItem): Result<Unit> {
+        return firebaseDatabase.createTodoItem(todoItem)
+    }
 }
-
-
-//    fun createTodoItem() {
-//        val dataBase = Firebase.firestore
-//        val todoItem = TodoItem("Nuevo Item", Timestamp.now())
-//        dataBase.collection("todolist")
-//            .add(todoItem)
-//            .addOnSuccessListener {
-//                Log.i("TodoListApp", "Success loading ${todoItem.name}")
-//            }
-//            .addOnFailureListener {
-//                Log.i("TodoListApp", "Error loading ${todoItem.name}")
-//            }
-//    }

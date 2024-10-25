@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class TodoViewModel(private val todoRepository: TodoRepository) : ViewModel() {
+class TodoListViewModel(private val todoRepository: TodoRepository) : ViewModel() {
 
     private var _todoItemsUiState = MutableStateFlow<TodoItemUiState>(TodoItemUiState.Loading)
     val todoItemsUiState: StateFlow<TodoItemUiState> = _todoItemsUiState

@@ -25,10 +25,10 @@ import java.time.LocalDateTime
 import java.time.ZoneOffset
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class TodoViewModelTest {
+class TodoListViewModelTest {
 
     @InjectMockKs
-    private lateinit var sut: TodoViewModel
+    private lateinit var sut: TodoListViewModel
 
     @MockK
     private lateinit var todoRepository: TodoRepository

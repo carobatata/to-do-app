@@ -5,13 +5,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.todoapp.ui.TodoViewModel
+import com.example.todoapp.ui.TodoListViewModel
 import com.example.todoapp.ui.model.TodoItemUiState
 import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun ToDoListScreen() {
-    val viewModel = getViewModel<TodoViewModel>()
+    val viewModel = getViewModel<TodoListViewModel>()
     val todoItems = viewModel.todoItemsUiState.collectAsState()
 
     LaunchedEffect(true) {
@@ -25,8 +25,11 @@ fun ToDoListScreen() {
                     TodoItemScreen(item)
                 }
             }
+
             TodoItemUiState.Error -> {}
             TodoItemUiState.Loading -> {}
+            TodoItemUiState.Idle -> {}
+            TodoItemUiState.SuccessWithoutData -> {}
         }
     }
 }
