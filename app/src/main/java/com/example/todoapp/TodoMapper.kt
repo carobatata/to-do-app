@@ -8,7 +8,7 @@ object TodoMapper {
         return TodoItemUI(
             name = todoItem.name.orEmpty(),
             date = todoItem.date?.let { transformTimestampToDateString(it) } ?: "",
-            isDone = todoItem.isDone
+            done = todoItem.done
         )
     }
 }

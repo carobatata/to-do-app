@@ -53,7 +53,7 @@ class TodoListViewModelTest {
         //Given
         val localDateTime = LocalDateTime.of(2024, 8, 10, 0, 0)
         val date = Timestamp(localDateTime.toInstant(ZoneOffset.UTC))
-        val todos = listOf(TodoItem(name = "Todo1", date = date, isDone = false))
+        val todos = listOf(TodoItem(name = "Todo1", date = date, done = false))
 
         coEvery { todoRepository.getAllTodoItems() } returns Result.success(todos)
 
@@ -66,7 +66,7 @@ class TodoListViewModelTest {
                 TodoItemUI(
                     name = "Todo1",
                     date = "10.08.24",
-                    isDone = false
+                    done = false
                 )
             )
         )
