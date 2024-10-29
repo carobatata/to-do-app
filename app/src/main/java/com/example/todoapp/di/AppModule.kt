@@ -23,7 +23,7 @@ val appModule = module {
     viewModel {
         TodoListViewModel(get())
     }
-//    viewModel {
-//        CreateTodoViewModel(get())
-//    }
+    viewModel {
+        CreateTodoViewModel(get())
+    }
 }

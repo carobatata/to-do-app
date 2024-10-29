@@ -12,8 +12,15 @@ import kotlinx.coroutines.launch
 
 class CreateTodoViewModel(private val todoRepository: TodoRepository) : ViewModel() {
 
+    private val _showBottomSheet = MutableStateFlow(false)
+    val showBottomSheet: StateFlow<Boolean> = _showBottomSheet
+
     private val _createTodoStatus = MutableStateFlow<TodoItemUiState>(TodoItemUiState.Idle)
     val createTodoStatus: StateFlow<TodoItemUiState> get() = _createTodoStatus
+
+    fun showBottomSheet(visible: Boolean) {
+        _showBottomSheet.value = visible
+    }
 
     fun createTodoItem(name: String) {
         val todoItem = TodoItem(
