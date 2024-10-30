@@ -101,7 +101,8 @@ class MainActivity : ComponentActivity() {
 
         if (showCreateModal.value) {
             ModalBottomSheet(
-                onDismissRequest = { createTodoViewModel.showBottomSheet(false) }
+                onDismissRequest = { createTodoViewModel.showBottomSheet(false) },
+                containerColor = White
             ) {
                 Column(
                     modifier = Modifier.padding(20.dp),
