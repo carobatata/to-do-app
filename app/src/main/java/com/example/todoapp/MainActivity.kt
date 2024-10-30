@@ -11,12 +11,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Add
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonColors
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -35,6 +35,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.todoapp.ui.CreateTodoViewModel
 import com.example.todoapp.ui.screens.ToDoListScreen
+import com.example.todoapp.ui.theme.DarkGreen
+import com.example.todoapp.ui.theme.LightGreen
+import com.example.todoapp.ui.theme.White
 import org.koin.androidx.compose.getViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -49,12 +52,13 @@ class MainActivity : ComponentActivity() {
             createTodoViewModel = getViewModel()
 
             Scaffold(
+                containerColor = White,
                 topBar = {
                     TopAppBar(
                         title = { Text(stringResource(R.string.app_name_scaffold)) },
                         colors = topAppBarColors(
-                            containerColor = MaterialTheme.colorScheme.primaryContainer,
-                            titleContentColor = MaterialTheme.colorScheme.primary,
+                            containerColor = LightGreen,
+                            titleContentColor = DarkGreen,
                         ),
                         actions = {
                             IconButton(
@@ -62,10 +66,10 @@ class MainActivity : ComponentActivity() {
                                     createTodoViewModel.showBottomSheet(true)
                                 },
                                 colors = IconButtonColors(
-                                    containerColor = MaterialTheme.colorScheme.primary,
-                                    contentColor = MaterialTheme.colorScheme.primaryContainer,
-                                    disabledContentColor = MaterialTheme.colorScheme.primaryContainer,
-                                    disabledContainerColor = MaterialTheme.colorScheme.primaryContainer,
+                                    containerColor = DarkGreen,
+                                    contentColor = LightGreen,
+                                    disabledContentColor = LightGreen,
+                                    disabledContainerColor = LightGreen,
                                 )
                             ) {
                                 Icon(
@@ -116,7 +120,13 @@ class MainActivity : ComponentActivity() {
                             createTodoViewModel.showBottomSheet(false)
                                   },
                         shape = RoundedCornerShape(4.dp),
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonColors(
+                            containerColor = LightGreen,
+                            contentColor = DarkGreen,
+                            disabledContentColor = DarkGreen,
+                            disabledContainerColor = LightGreen
+                        )
                     ) {
                         Text("Create")
                     }
