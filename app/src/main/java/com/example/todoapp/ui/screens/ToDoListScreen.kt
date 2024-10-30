@@ -27,7 +27,7 @@ fun ToDoListScreen() {
             }
 
             TodoItemUiState.Error -> {}
-            TodoItemUiState.Loading -> {}
+            TodoItemUiState.Loading -> { AppSpinner() }
             TodoItemUiState.Idle -> {}
             TodoItemUiState.SuccessWithoutData -> {}
         }
