@@ -1,6 +1,7 @@
 package com.example.todoapp
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
@@ -31,9 +32,11 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.todoapp.ui.CreateTodoViewModel
+import com.example.todoapp.ui.model.TodoItemUiState
 import com.example.todoapp.ui.screens.ToDoListScreen
 import com.example.todoapp.ui.theme.DarkGreen
 import com.example.todoapp.ui.theme.LightGreen
@@ -98,6 +101,18 @@ class MainActivity : ComponentActivity() {
     fun CreateTodoScreen() {
         val showCreateModal = createTodoViewModel.showBottomSheet.collectAsState()
         var todoText by rememberSaveable { mutableStateOf("")  }
+        val isItemCreated = createTodoViewModel.createTodoStatus.collectAsState()
+        val context = LocalContext.current.applicationContext
+
+        when(isItemCreated.value){
+            is TodoItemUiState.Success -> {}
+            is TodoItemUiState.Error -> {}
+            is TodoItemUiState.Idle -> {}
+            is TodoItemUiState.Loading -> {}
+            is TodoItemUiState.SuccessWithoutData -> {
+               Toast.makeText(context, R.string.toast_success_message, Toast.LENGTH_SHORT).show()
+            }
+        }
 
         if (showCreateModal.value) {
             ModalBottomSheet(

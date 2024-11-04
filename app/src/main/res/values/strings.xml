@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ToDoApp</string>
     <string name="app_name_scaffold">To-Do List App</string>
+    <string name="toast_success_message">Task successfully created!</string>
 </resources>
