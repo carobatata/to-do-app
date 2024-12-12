@@ -1,6 +1,8 @@
 package com.example.todoapp.ui.screens
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -18,19 +20,22 @@ fun ToDoListScreen() {
         viewModel.getAllTodoItems()
     }
 
-    Column {
-        when (todoItems.value) {
-            is TodoItemUiState.Success -> {
-                (todoItems.value as TodoItemUiState.Success).todoItemUI.forEach { item ->
+    when (todoItems.value) {
+        is TodoItemUiState.Success -> {
+            LazyColumn {
+                items((todoItems.value as TodoItemUiState.Success).todoItemUI) { item ->
                     TodoItemScreen(item)
                 }
             }
-
-            TodoItemUiState.Error -> {}
-            TodoItemUiState.Loading -> { AppSpinner() }
-            TodoItemUiState.Idle -> {}
-            TodoItemUiState.SuccessWithoutData -> {}
         }
+
+        TodoItemUiState.Error -> {}
+        TodoItemUiState.Loading -> {
+            AppSpinner()
+        }
+
+        TodoItemUiState.Idle -> {}
+        TodoItemUiState.SuccessWithoutData -> {}
     }
 }
 
